@@ -1,14 +1,20 @@
 from django.shortcuts import render, get_object_or_404
-from datetime import date
-from .models import Post, Tag, Author
+from .models import Post
+from django.core.paginator import Paginator
 
 # Create your views here.
 
 
 def index(request):
     posts = Post.objects.all().order_by("-date")
+
+    p = Paginator(Post.objects.all(), 3)
+    page = request.GET.get("page")
+    posts_list = p.get_page(page)
+
     return render(request, "blog/index.html", {
         "posts": posts,
+        "posts_list": posts_list,
     })
 
 
