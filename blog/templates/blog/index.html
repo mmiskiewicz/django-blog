@@ -23,7 +23,7 @@ Home Page
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    {% for post in posts %}
+                    {% for post in posts_list %}
                     <!-- Post preview-->
                     <div class="post-preview">
                         <a href="{% url 'post' post.slug %}">
@@ -38,7 +38,15 @@ Home Page
                     <hr class="my-4" />
                     {% endfor %}
                     <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                    {% if posts_list.has_next %}
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="?page={{ posts_list.next_page_number }}">Older Posts →</a></div>
+                     {% endif %}
+                    {% if posts_list.has_previous %}
+                    <div class="justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="?page={{ posts_list.previous_page_number }}">← Newer Posts</a></div>
+                     {% endif %}
+
+
+
                 </div>
             </div>
         </div>
