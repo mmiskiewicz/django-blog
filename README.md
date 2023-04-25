@@ -49,12 +49,7 @@ Blog written in Django framework.
 ## Demo
 
 <p align="center">
-<h3>Main Page</h3>
-<img src=https://user-images.githubusercontent.com/32812860/234353028-0eba5c0a-e535-490c-a9de-1b789bec5044.png></img>
-<img src=https://user-images.githubusercontent.com/32812860/234353087-25129ce5-0a77-4cbe-904f-c8b25e8c19ae.png></img>
-<h3>Blog Post</h3>
-<img src=https://user-images.githubusercontent.com/32812860/234353185-8bac09e5-73ca-4183-aac3-8a1c537bf256.png></img>
-<img src=https://user-images.githubusercontent.com/32812860/234353263-9324d85a-416c-4982-bef8-92f0df19bd66.png></img>
+<img src=https://user-images.githubusercontent.com/32812860/234400899-201156ba-4893-4392-b0b9-0fb0312201bc.gif></img>
 </p>
 
 ## Contributing
