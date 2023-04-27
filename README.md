@@ -1,6 +1,7 @@
 <h1 align="center">
-  <img src=https://user-images.githubusercontent.com/32812860/234351255-af0159af-327c-4e46-a774-903926dc3397.gif></img>
+  <img src=https://user-images.githubusercontent.com/32812860/234980446-4d623c7c-02f0-40a5-9175-9d4c315ab7e6.gif></img>
   </h1>
+
 
 <h4 align="center">
 Blog written in Django framework.
