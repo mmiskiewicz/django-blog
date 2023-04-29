@@ -23,16 +23,51 @@
                                 {% endfor %}
                             </span>
                         </div>
+                        <div id="mark-favorite">
+                            <button>Favorite</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </header>
+
+
         <!-- Post Content-->
         <article class="mb-4">
+             {% if form.errors %}
+                            <div id="alert">
+                                <h2>Saving the comment failed!</h2>
+                                <a href="#comment-form">Please check the comment form below the post and fix your errors</a>
+
+                            </div>
+                        {% endif %}
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <p>{{ post.content | linebreaks }}</p>
+
+                        <section id="comments">
+                            <ul>
+                                {% for comment in comments %}
+                                    <li>
+                                        <h2>{{ comment.user_name }}</h2>
+                                        <p>{{ comment.comment_text|linebreaks }}</p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </section>
+
+                        <form id="comment-form" action="{% url 'post-page' post.slug %}" method="POST">
+                            {% csrf_token %}
+                                {% for field in form %}
+                              <div class ="form-control {% if field.errors %}invalid{% endif %}">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                {{ field.errors }}
+                             </div>
+                                {% endfor %}
+                             <center><button type="submit">Send</button></center>
+                        </form>
                     </div>
                 </div>
             </div>
