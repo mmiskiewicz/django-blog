@@ -24,7 +24,17 @@
                             </span>
                         </div>
                         <div id="mark-favorite">
-                            <button>Favorite</button>
+                            <form action="{% url 'favorites' %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{ post.id }}" name="post_id">
+                            <button>
+                            {% if is_marked_as_favorite %}
+                                Remove from favorites
+                            {% else %}
+                                Favorite
+                            {% endif %}
+                            </button>
+                                </form>
                         </div>
                     </div>
                 </div>
@@ -46,6 +56,7 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <p>{{ post.content | linebreaks }}</p>
 
+
                         <section id="comments">
                             <ul>
                                 {% for comment in comments %}
@@ -56,6 +67,7 @@
                                 {% endfor %}
                             </ul>
                         </section>
+
 
                         <form id="comment-form" action="{% url 'post-page' post.slug %}" method="POST">
                             {% csrf_token %}
